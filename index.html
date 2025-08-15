@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RJA Store - Premium Brawl Stars Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-pink: #FFB6C1;
+            --dark-purple: #2A0A3D;
+            --darker-purple: #1A0528;
+            --neon-pink: #FF10F0;
+            --text-white: #FFFFFF;
+            --text-light: #E0E0E0;
+            --glass-bg: rgba(255, 182, 193, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark-purple);
+            color: var(--text-white);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Cloud Background */
+        .cloud-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: var(--primary-pink);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+
+        .cloud:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: 10%;
+        }
+
+        .cloud:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .cloud:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .cloud:nth-child(4) {
+            width: 350px;
+            height: 350px;
+            top: 70%;
+            left: 20%;
+            animation-delay: 7s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-50px) translateX(50px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        /* Navigation */
+        nav.glass-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-white);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-white);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn-neon, .btn-primary, .btn-secondary {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-neon {
+            background: var(--neon-pink);
+            color: var(--text-white);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--neon-pink);
+        }
+
+        .btn-primary {
+            background: var(--primary-pink);
+            color: var(--dark-purple);
+        }
+
+        .btn-primary:hover {
+            background: var(--text-white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--text-white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 5rem;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span.text-neon {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: 500px;
+            width:500px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 5%;
+            background: var(--darker-purple);
+            position: relative;
+        }
+
+        .services-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-section h2 span.text-neon {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--neon-pink);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neon-pink);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card .price .original-price {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .service-card .features {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .service-card .features li i {
+            font-size: 0.8rem;
+            color: var(--neon-pink);
+            margin-bottom: 0;
+        }
+
+        /* Order Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .order-modal {
+            background: var(--darker-purple);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            position: relative;
+            border: 1px solid var(--glass-border);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .order-modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--neon-pink);
+        }
+
+        .order-modal h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-pink);
+            text-align: center;
+        }
+
+        .order-modal .service-info {
+            background: var(--glass-bg);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-modal .service-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .order-modal .service-info .service-price {
+            color: var(--neon-pink);
+            font-weight: 700;
+        }
+
+        .order-modal .service-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group select option {
+            background: var(--darker-purple);
+        }
+
+        .rank-selection {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rank-selection select {
+            flex: 1;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--glass-bg);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .payment-method:hover {
+            border-color: var(--neon-pink);
+        }
+
+        .payment-method.active {
+            border-color: var(--neon-pink);
+            background: rgba(255, 16, 240, 0.1);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-pink);
+        }
+
+        .payment-method p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .pay-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--neon-pink);
+            color: var(--text-white);
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px var(--neon-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pay-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--neon-pink);
+        }
+
+        .pay-btn i {
+            font-size: 1.2rem;
+        }
+
+        .payment-processing {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .payment-processing i {
+            font-size: 3rem;
+            color: var(--neon-pink);
+            margin-bottom: 1rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .payment-success {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .payment-success i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .payment-success h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-pink);
+        }
+
+        .payment-success p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content h2 span.text-neon {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--neon-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 5rem 5%;
+            background: var(--darker-purple);
+        }
+
+        .why-choose-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .why-choose-section h2 span.text-neon {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 5%;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(255, 182, 193, 0.2);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-card .rating {
+            color: var(--primary-pink);
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 5px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-card .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-card .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-card .author-info p {
+            font-style: normal;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-purple);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* AI Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 20px var(--neon-pink);
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            background: var(--darker-purple);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: var(--glass-bg);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.8rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background: var(--glass-bg);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background: var(--neon-pink);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .quick-questions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .quick-question {
+            padding: 0.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-question:hover {
+            background: var(--primary-pink);
+            color: var(--dark-purple);
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border-radius: 50px 0 0 50px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            outline: none;
+        }
+
+        .chatbot-input button {
+            padding: 0 1.5rem;
+            border-radius: 0 50px 50px 0;
+            background: var(--neon-pink);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 8rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .about-section {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-modal {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .rank-selection {
+                flex-direction: column;
+            }
+
+            .payment-methods {
+                flex-direction: column;
+            }
+
+            .chatbot-window {
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cloud Background -->
+    <div class="cloud-bg">
+        <div class="cloud pink-cloud"></div>
+        <div class="cloud pink-cloud"></div>
+        <div class="cloud pink-cloud"></div>
+        <div class="cloud pink-cloud"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <span>RJA STORE</span>
+        </div>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#why-choose">Why Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+           <li><a href="https://discord.gg/4c8avPm2" class="btn-neon" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>LEVEL UP YOUR <span class="text-neon">BRAWL STARS</span> EXPERIENCE</h1>
+            <p>Premium account services from trusted professionals. Get the edge you need to dominate the battlefield with our fast and reliable services.</p>
+            <div class="cta-buttons">
+               <a href="#services" class="btn-primary">Browse Services</a>
+                <a href="https://discord.gg/4c8avPm2" class="btn-secondary" target="_blank" style="text-decoration: none;">Join Server</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://media.discordapp.net/attachments/1368666737712693388/1405980357249077308/image0.jpg?ex=68a0ccbf&is=689f7b3f&hm=68b3efc16baa3251acfb619796f896dad470e971c1193716f5d4d726a14be47a&=&format=webp" alt="Brawl Stars Characters">
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2>OUR <span class="text-neon">SERVICES</span></h2>
+        <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Ranked Boosting</h3>
+                <p>Get your account to the desired rank with our professional boosters. Safe and fast service with daily updates.</p>
+                <div class="price">
+                    From $50
+                    <span class="original-price">From $80</span>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Professional boosters</li>
+                    <li><i class="fas fa-check"></i> 24/7 progress updates</li>
+                    <li><i class="fas fa-check"></i> 100% Safe</li>
+                    <li><i class="fas fa-check"></i> Completion guarantee</li>
+                </ul>
+                <button class="btn-primary order-btn" data-service="Ranked Boosting" data-price="From $5">Order Now</button>
+            </div>
+            
+            <!-- Service Card 2 -->
+            <div class="service-card">
+                <i class="fas fa-coins"></i>
+                <h3>Pro players adds</h3>
+                <p>Add your favourite pro players permanently.</p>
+                <div class="price">
+                    $10 
+                    <span class="original-price">$15</span>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Fast delivery</li>
+                    <li><i class="fas fa-check"></i> Custom amounts</li>
+                    <li><i class="fas fa-check"></i> Safe methods</li>
+                    <li><i class="fas fa-check"></i> 24/7 support</li>
+                </ul>
+                <button class="btn-primary order-btn" data-service="Pro Players Adds" data-price="$10 for 1 add">Order Now</button>
+            </div>
+            
+            <!-- Service Card 3 -->
+            <div class="service-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Account Market</h3>
+                <p>Buy or sell your desired accounts.</p>
+                <div class="price">
+                    $15 - $600
+                    <span class="original-price">$25 - $700</span>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Security audit</li>
+                    <li><i class="fas fa-check"></i> Recovery setup</li>
+                    <li><i class="fas fa-check"></i> 2FA configuration</li>
+                    <li><i class="fas fa-check"></i> Lifetime support</li>
+                </ul>
+                <button class="btn-primary order-btn" data-service="Account Market" data-price="$15 - $600">Order Now</button>
+            </div>
+            
+            <!-- Service Card 4 -->
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Buy Matcherino Pin</h3>
+                <p>Buy the official matcherino pin.</p>                
+                <div class="price">
+                    $400
+                    <span class="original-price">$500 </span>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Fast completion</li>
+                    <li><i class="fas fa-check"></i> Multiple brawlers</li>
+                    <li><i class="fas fa-check"></i> Custom requests</li>
+                    <li><i class="fas fa-check"></i> Safe methods</li>
+                </ul>
+                <button class="btn-primary order-btn" data-service="Buy Matcherino Pin" data-price="$400">Order Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-image">
+            <img src="https://media.discordapp.net/attachments/1368666737712693388/1405980357249077308/image0.jpg?ex=68a0ccbf&is=689f7b3f&hm=68b3efc16baa3251acfb619796f896dad470e971c1193716f5d4d726a14be47a&=&format=webp" alt="RJA - Store Owner">
+        </div>
+        <div class="about-content">
+            <h2>ABOUT <span class="text-neon">RJA</span></h2>
+            <p>Hi, I'm RJA, a professional Brawl Stars player and content creator with over 5 years of experience in the game. I started this store to provide high-quality services to fellow players who want to enhance their gaming experience.</p>
+            <p>All services are performed by me or my team of trusted professionals. We prioritize account safety and customer satisfaction above all else.</p>
+            <p>When I'm not playing Brawl Stars, I create content on various platforms to help players improve their skills and game knowledge.</p>
+            
+            <h3>Connect With Me</h3>
+            <div class="social-links">
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="why-choose-section">
+        <h2>WHY <span class="text-neon">CHOOSE US</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>100% Safe</h3>
+                <p>All services are performed manually by professionals. No hacks or cheats are used.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Delivery</h3>
+                <p>We prioritize speed without compromising quality. Most orders are completed within 24-48 hours.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Our support team is available around the clock to answer your questions and provide updates.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-medal"></i>
+                <h3>Experienced</h3>
+                <p>With over 5 years in the Brawl Stars community, we know the game inside and out.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-lock"></i>
+                <h3>Secure Payments</h3>
+                <p>We offer multiple secure payment options including PayPal.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-gem"></i>
+                <h3>Premium Quality</h3>
+                <p>We provide top-tier services with attention to detail and customer satisfaction.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2>PLAYER <span class="text-neon">REVIEWS</span></h2>
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"RJA Store delivered my rank boost faster than expected.It's 100% legit"</p>
+                <div class="author">
+                    <img src="https://i.pinimg.com/474x/08/35/0c/08350cafa4fabb8a6a1be2d9f18f2d88.jpg" alt="User 1">
+                    <div class="author-info">
+                        <h4>Client 1</h4>
+                        <p>Masters I Boost</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Thank you for your service.It was crazy good and very fast"</p>
+                <div class="author">
+                    <img src="https://i.pinimg.com/474x/08/35/0c/08350cafa4fabb8a6a1be2d9f18f2d88.jpg" alt="User 2">
+                    <div class="author-info">
+                        <h4>Client 2</h4>
+                        <p>Pro Rank Boost</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Some good players gave compliments,only 2 losses,14/17 star player.Very good job 100% legit"</p>
+                <div class="author">
+                    <img src="https://i.pinimg.com/474x/08/35/0c/08350cafa4fabb8a6a1be2d9f18f2d88.jpg" alt="User 3">
+                    <div class="author-info">
+                        <h4>Client 3</h4>
+                        <p>Pro Rank Boost</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">RJA STORE</div>
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#why-choose">Why Us</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+        <p class="copyright">© 2025 RJA Store. All rights reserved. Not affiliated with Supercell.</p>
+    </footer>
+    
+    <!-- AI Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>RJA Store Assistant</h3>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hello! I'm RJA Store's AI assistant. How can I help you today?
+                </div>
+                <div class="message bot-message">
+                    You can ask me about our services, pricing, or order status. Or click one of the quick questions below!
+                </div>
+            </div>
+            
+            <div class="quick-questions">
+                <div class="quick-question" data-question="What services do you offer?">Services Offered</div>
+                <div class="quick-question" data-question="How long does boosting take?">Boosting Time</div>
+                <div class="quick-question" data-question="Is account boosting safe?">Safety</div>
+                <div class="quick-question" data-question="How do I place an order?">Place Order</div>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your question...">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="order-modal">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3>Complete Your Order</h3>
+            
+            <div class="service-info">
+                <h4>
+                    <span id="modalServiceName">Service Name</span>
+                    <span class="service-price" id="modalServicePrice">$0</span>
+                </h4>
+                <p id="modalServiceDesc">Service description will appear here</p>
+            </div>
+            
+            <!-- Rank Selection (for Ranked Boosting) -->
+            <div class="form-group" id="rankSelectionGroup" style="display: none;">
+                <label>Select Ranks</label>
+                <div class="rank-selection">
+                    <select id="fromRank">
+                        <option value="">From Rank</option>
+                        
+                        <option value="masters3">Masters III</option>
+                        <option value="masters2">Masters II</option>
+                        <option value="masters1">Masters I</option>
+                        <option value="legendary3">Legendary III</option>
+                        <option value="legendary2">Legendary II</option>
+                        <option value="legendary1">Legendary I</option>
+                    </select>
+                    <select id="toRank">
+                        <option value="">To Rank</option>
+                        <option value="pro">Pro</option>
+                        <option value="masters3">Masters III</option>
+                        <option value="masters2">Masters II</option>
+                        <option value="masters1">Masters I</option>
+                        <option value="legendary3">Legendary III</option>
+                        <option value="legendary2">Legendary II</option>
+                        <option value="legendary1">Legendary I</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Trophy Input (for other services) -->
+            <div class="form-group" id="trophyInputGroup" style="display: none;">
+                <label for="trophyCount">Trophy Count/Amount</label>
+                <input type="number" id="trophyCount" placeholder="Enter number of trophies or amount">
+            </div>
+            
+            <div class="form-group">
+                <label for="discordUsername">Discord Username</label>
+                <input type="text" id="discordUsername" placeholder="YourDiscord#1234" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="paypalEmail">PayPal Email</label>
+                <input type="email" id="paypalEmail" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Payment Method</label>
+                <div class="payment-methods">
+                    <div class="payment-method active" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        <p>PayPal</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="paymentForm">
+                <button class="pay-btn" id="payNowBtn">
+                    <i class="fas fa-lock"></i>
+                    Pay Now
+                </button>
+            </div>
+            
+            <div class="payment-processing" id="paymentProcessing">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Processing your payment...</p>
+            </div>
+            
+            <div class="payment-success" id="paymentSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h4>Payment Successful!</h4>
+                <p>Your order has been received and will be processed shortly. We'll contact you on Discord for further details.</p>
+                <button class="btn-primary" id="closeSuccessBtn">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PayPal SDK (for real payments) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+    
+    <script>
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotClose = document.getElementById('chatbotClose');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotSend = document.getElementById('chatbotSend');
+            const quickQuestions = document.querySelectorAll('.quick-question');
+            
+            // Toggle chatbot window
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // Close chatbot
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+            
+            // Send message function
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    // Add user message
+                    addMessage(message, 'user');
+                    chatbotInput.value = '';
+                    
+                    // Simulate bot response after a short delay
+                    setTimeout(() => {
+                        const botResponse = getBotResponse(message);
+                        addMessage(botResponse, 'bot');
+                    }, 1000);
+                }
+            }
+            
+            // Add message to chat
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            // Get bot response
+            function getBotResponse(question) {
+                question = question.toLowerCase();
+                
+                if (question.includes('service') || question.includes('offer')) {
+                    return "We offer rank boosting,pro players adds, account buy-sell, and official matcherino pin. You can see all services on our website!";
+                } else if (question.includes('time') || question.includes('long') || question.includes('take')) {
+                    return "Delivery time depends on the service and your current progress,typically it can take 24-48 hours.";
+                } else if (question.includes('safe') || question.includes('security') || question.includes('ban')) {
+                    return "All services are performed manually by professionals.No hacks or cheats are used.Your Account will be in safe and trusted hands";
+                } else if (question.includes('order') || question.includes('buy') || question.includes('purchase')) {
+                    return "To place an order: 1) Select your service 2) Provide your account details 3) Make payment 4) We'll notify you when complete!";
+                } else if (question.includes('price') || question.includes('cost') || question.includes('much')) {
+                    return "Prices vary based on service and requirements. Rank boosting starts at $50.Check our Services section for details!";
+                } else if (question.includes('hello') || question.includes('hi') || question.includes('hey')) {
+                    return "Hello! How can I assist you with RJA Store services today?";
+                } else {
+                    return "I'm sorry, I didn't understand that. Could you rephrase your question or try one of the quick questions below?";
+                }
+            }
+            
+            // Send message on button click
+            chatbotSend.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Quick questions
+            quickQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const questionText = this.getAttribute('data-question');
+                    addMessage(questionText, 'user');
+                    
+                    setTimeout(() => {
+                        const botResponse = getBotResponse(questionText);
+                        addMessage(botResponse, 'bot');
+                    }, 1000);
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Order Modal Functionality
+            const orderModal = document.getElementById('orderModal');
+            const closeModal = document.getElementById('closeModal');
+            const orderButtons = document.querySelectorAll('.order-btn');
+            const modalServiceName = document.getElementById('modalServiceName');
+            const modalServicePrice = document.getElementById('modalServicePrice');
+            const modalServiceDesc = document.getElementById('modalServiceDesc');
+            const payNowBtn = document.getElementById('payNowBtn');
+            const paymentForm = document.getElementById('paymentForm');
+            const paymentProcessing = document.getElementById('paymentProcessing');
+            const paymentSuccess = document.getElementById('paymentSuccess');
+            const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+            const rankSelectionGroup = document.getElementById('rankSelectionGroup');
+            const trophyInputGroup = document.getElementById('trophyInputGroup');
+            const fromRank = document.getElementById('fromRank');
+            const toRank = document.getElementById('toRank');
+            const trophyCount = document.getElementById('trophyCount');
+            
+            // Rank pricing
+            const rankPrices = {
+    "legendary1": { 
+        "legendary2": 50, 
+        "legendary3": 50, 
+        "masters1": 50, 
+        "masters2": 100, 
+        "masters3": 170, 
+        "pro": 600 
+    },
+    "legendary2": { 
+        "legendary3": 50, 
+        "masters1": 50, 
+        "masters2": 90, 
+        "masters3": 160, 
+        "pro": 580 
+    },
+    "legendary3": { 
+        "masters1": 50, 
+        "masters2": 85, 
+        "masters3": 155, 
+        "pro": 560 
+    },
+    "masters1": { 
+        "masters2": 90, 
+        "masters3": 150, 
+        "pro": 540 
+    },
+    "masters2": { 
+        "masters3": 130, 
+        "pro": 400 
+    },
+    "masters3": { 
+        "pro": 330 
+    }
+};
+            
+            // Service descriptions
+            const serviceDescriptions = {
+                "Ranked Boosting": "Professional rank boosting service to help you reach your desired rank quickly and safely.",
+                "Pro Players Adds": "Add pro players permanently.",
+                "Account Market": "Buy Tier 3,Tier 2,Tier 1 accounts.",
+                "Buy Matcherino Pin": "Buy the official matcherino pin."
+            };
+            
+            // Open modal when order button is clicked
+            orderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    const price = this.getAttribute('data-price');
+                    
+                    modalServiceName.textContent = service;
+                    modalServicePrice.textContent = price;
+                    modalServiceDesc.textContent = serviceDescriptions[service] || "Premium Brawl Stars service";
+                    
+                    // Show/hide appropriate input fields
+                    if (service === "Ranked Boosting") {
+                        rankSelectionGroup.style.display = 'block';
+                        trophyInputGroup.style.display = 'none';
+                        // Reset rank selections
+                        fromRank.value = '';
+                        toRank.value = '';
+                    } else {
+                        rankSelectionGroup.style.display = 'none';
+                        trophyInputGroup.style.display = 'none';
+                        // Reset trophy count
+                        trophyCount.value = '';
+                    }
+                    
+                    // Reset modal state
+                    paymentForm.style.display = 'block';
+                    paymentProcessing.style.display = 'none';
+                    paymentSuccess.style.display = 'none';
+                    
+                    orderModal.classList.add('active');
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                orderModal.classList.remove('active');
+            });
+            
+            // Update price when ranks are selected
+            fromRank.addEventListener('change', updatePrice);
+            toRank.addEventListener('change', updatePrice);
+            
+            function updatePrice() {
+                if (fromRank.value && toRank.value) {
+                    const from = fromRank.value;
+                    const to = toRank.value;
+                    
+                    if (rankPrices[from] && rankPrices[from][to]) {
+                        const price = rankPrices[from][to];
+                        modalServicePrice.textContent = `$${price}`;
+                    } else {
+                        modalServicePrice.textContent = "Invalid rank selection";
+                    }
+                }
+            }
+            
+            // Process payment
+            payNowBtn.addEventListener('click', function() {
+                const discordUsername = document.getElementById('discordUsername').value;
+                const paypalEmail = document.getElementById('paypalEmail').value;
+                const service = modalServiceName.textContent;
+                
+                // Validate inputs
+                if (!discordUsername || !paypalEmail) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Additional validation based on service
+                if (service === "Ranked Boosting") {
+                    if (!fromRank.value || !toRank.value) {
+                        alert('Please select both from and to ranks');
+                        return;
+                    }
+                } else {
+                    if (!trophyCount.value) {
+                        alert('Please enter the trophy count/amount');
+                        return;
+                    }
+                }
+                
+                // Show processing
+                paymentForm.style.display = 'none';
+                paymentProcessing.style.display = 'flex';
+                
+                // In a real implementation, you would integrate with PayPal here
+                // This is just a simulation
+                setTimeout(() => {
+                    paymentProcessing.style.display = 'none';
+                    paymentSuccess.style.display = 'flex';
+                    
+                    // Prepare order details
+                    let orderDetails = {
+                        service: service,
+                        discord: discordUsername,
+                        paypal: paypalEmail,
+                        date: new Date().toLocaleString()
+                    };
+                    
+                    if (service === "Ranked Boosting") {
+                        orderDetails.fromRank = fromRank.options[fromRank.selectedIndex].text;
+                        orderDetails.toRank = toRank.options[toRank.selectedIndex].text;
+                        orderDetails.price = modalServicePrice.textContent;
+                    } else {
+                        orderDetails.amount = trophyCount.value;
+                        orderDetails.price = modalServicePrice.textContent;
+                    }
+                    
+                    // Send order to Discord
+                    sendOrderToDiscord(orderDetails);
+                }, 3000);
+            });
+            
+            // Close success message
+            closeSuccessBtn.addEventListener('click', function() {
+                orderModal.classList.remove('active');
+            });
+            
+            // Function to send order to Discord
+            function sendOrderToDiscord(orderDetails) {
+                // In a real implementation, you would use a webhook here
+                console.log('Order details:', orderDetails);
+                
+               
+                const webhookURL = 'https://discord.com/api/webhooks/1406002700486967497/PdwQdhW8ifmAgNj1uDJkHDoVCdlErNkV2CZ2SvfyJaEZnDGv5wI5_S2mFWdiGoN1rscu';
+                
+                let description = `**Service:** ${orderDetails.service}\n`;
+                description += `**Discord:** ${orderDetails.discord}\n`;
+                description += `**PayPal:** ${orderDetails.paypal}\n`;
+                description += `**Price:** ${orderDetails.price}\n`;
+                
+                if (orderDetails.service === "Ranked Boosting") {
+                    description += `**From:** ${orderDetails.fromRank}\n`;
+                    description += `**To:** ${orderDetails.toRank}\n`;
+                } else {
+                    description += `**Amount:** ${orderDetails.amount}\n`;
+                }
+                
+                description += `**Date:** ${orderDetails.date}`;
+                
+                const embed = {
+                    title: 'New Order Received',
+                    color: 0xFF10F0,
+                    description: description,
+                    timestamp: new Date().toISOString()
+                };
+                
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ embeds: [embed] })
+                });
+            
+            }
+            
+           
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: calculatePrice() // You would implement this function
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Show success message
+                        paymentForm.style.display = 'none';
+                        paymentProcessing.style.display = 'none';
+                        paymentSuccess.style.display = 'flex';
+                        
+                        // Send order to Discord
+                        sendOrderToDiscord();
+                    });
+                }
+            }).render('#payNowBtn');
+            
+        });
+    </script>
+</body>
+</html>

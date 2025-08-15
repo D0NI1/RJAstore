@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RJA Store - Premium Brawl Stars Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FFB6C1;
+            --pink-dark: #FF8FAB;
+            --yellow: #FFFACD;
+            --yellow-dark: #FFF176;
+            --blue: #ADD8E6;
+            --blue-dark: #81D4FA;
+            --text: #333333;
+            --text-light: #555555;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background-color: #FFF5F7;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--pink);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--white);
+            font-size: 28px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .logo p {
+            color: var(--white);
+            font-size: 14px;
+            margin-top: -5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .cta-button a {
+            background-color: var(--blue);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .cta-button a:hover {
+            background-color: var(--blue-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--pink) 0%, var(--blue) 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.3)" d="M30,30 Q50,20 70,30 T90,30 T110,30 T130,30 T150,30 T170,30 T190,30 T210,30" transform="translate(-20,-20) scale(1.2)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--yellow);
+            color: var(--text);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--yellow-dark);
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--pink), var(--blue));
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin-bottom: 20px;
+        }
+        
+        .service-btn {
+            display: inline-block;
+            background-color: var(--blue);
+            color: var(--text);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .service-btn:hover {
+            background-color: var(--blue-dark);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: #F9F9F9;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.popular::before {
+            content: "Popular";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--yellow);
+            color: var(--text);
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .pricing-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #EEE;
+        }
+        
+        .pricing-btn {
+            display: inline-block;
+            background-color: var(--pink);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-btn:hover {
+            background-color: var(--pink-dark);
+        }
+        
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .reviews-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .review-card {
+            background-color: #F9F9F9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .review-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--pink);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .review-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: #F9F9F9;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            background-color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #F5F5F5;
+        }
+        
+        .faq-question::after {
+            content: "+";
+            font-size: 20px;
+        }
+        
+        .faq-question.active::after {
+            content: "-";
+        }
+        
+        .faq-answer {
+            background-color: var(--white);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--pink);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--pink);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--pink-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--pink);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #BBBBBB;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--pink);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #BBBBBB;
+            font-size: 14px;
+        }
+        
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            background-color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-btn:hover {
+            background-color: var(--blue-dark);
+            transform: scale(1.1);
+        }
+        
+        .chatbot-btn i {
+            font-size: 24px;
+            color: var(--white);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .chatbot-window.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .chatbot-header {
+            background-color: var(--pink);
+            color: var(--white);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header h3 {
+            font-size: 18px;
+        }
+        
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .chatbot-messages {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .bot-message {
+            background-color: #F5F5F5;
+            padding: 10px 15px;
+            border-radius: 15px 15px 15px 0;
+            align-self: flex-start;
+        }
+        
+        .user-message {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 15px 15px 0 15px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .quick-questions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 15px 15px;
+        }
+        
+        .quick-question {
+            background-color: var(--yellow);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .quick-question:hover {
+            background-color: var(--yellow-dark);
+        }
+        
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #EEE;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #DDD;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+        
+        .send-btn {
+            background-color: var(--pink);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .send-btn:hover {
+            background-color: var(--pink-dark);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>RJA Store</h1>
+                <p>Premium Brawl Stars Services</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li class="cta-button"><a href="#order">Order Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Boost Your Brawl Stars Experience</h2>
+            <p>Get premium services from the most trusted Brawl Stars service provider. Fast, reliable, and secure boosting for all your needs.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#order" class="btn btn-secondary">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x200?text=Trophy+Boosting" alt="Trophy Boosting">
+                    <div class="service-content">
+                        <h3>Trophy Boosting</h3>
+                        <p>Get your brawlers to the highest ranks with our professional boosters.</p>
+                        <div class="service-price">$5 <span>/ 100 trophies</span></div>
+                        <a href="#order" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x200?text=Star+Power+Unlock" alt="Star Power Unlock">
+                    <div class="service-content">
+                        <h3>Star Power Unlock</h3>
+                        <p>Unlock all star powers for your favorite brawlers instantly.</p>
+                        <div class="service-price">$10 <span>/ brawler</span></div>
+                        <a href="#order" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x200?text=Account+Leveling" alt="Account Leveling">
+                    <div class="service-content">
+                        <h3>Account Leveling</h3>
+                        <p>Max out your account with all brawlers, gadgets, and star powers.</p>
+                        <div class="service-price">$50 <span>/ max account</span></div>
+                        <a href="#order" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing Plans</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$10</div>
+                    <ul class="pricing-features">
+                        <li>100 Trophy Boost</li>
+                        <li>1 Star Power Unlock</li>
+                        <li>Basic Support</li>
+                        <li>3 Day Delivery</li>
+                    </ul>
+                    <a href="#order" class="pricing-btn">Choose Plan</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Pro</h3>
+                    <div class="price">$25</div>
+                    <ul class="pricing-features">
+                        <li>500 Trophy Boost</li>
+                        <li>5 Star Power Unlocks</li>
+                        <li>Priority Support</li>
+                        <li>24 Hour Delivery</li>
+                    </ul>
+                    <a href="#order" class="pricing-btn">Choose Plan</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">$50</div>
+                    <ul class="pricing-features">
+                        <li>1000 Trophy Boost</li>
+                        <li>All Star Powers</li>
+                        <li>VIP Support</li>
+                        <li>Instant Delivery</li>
+                    </ul>
+                    <a href="#order" class="pricing-btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+            </div>
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <p class="review-text">RJA Store delivered my trophy boost faster than expected! The booster was professional and kept me updated throughout the process. Will definitely use again!</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D.">
+                        <div class="author-info">
+                            <h4>John D.</h4>
+                            <p>Rank 30 Shelly</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">I was skeptical at first, but they maxed out my account in just 2 days! The price was reasonable and the service was excellent. Highly recommend!</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M.">
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Maxed Account</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">Best Brawl Stars service out there! Got all star powers for my favorite brawlers and the account is still secure after 3 months. 5 stars!</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Alex T.">
+                        <div class="author-info">
+                            <h4>Alex T.</h4>
+                            <p>Star Power Package</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Is account sharing safe for boosting?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we use VPNs from your region and take all necessary precautions to ensure your account's safety. We've completed thousands of boosts without any issues.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How long does a boost take to complete?</div>
+                    <div class="faq-answer">
+                        <p>Delivery times vary based on the service. Trophy boosts typically take 1-3 days, while account maxing may take 2-5 days depending on the current progress.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods do you accept?</div>
+                    <div class="faq-answer">
+                        <p>We accept PayPal, credit/debit cards, and various cryptocurrencies. All payments are secure and processed through trusted payment gateways.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer refunds if I'm not satisfied?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a 100% satisfaction guarantee. If you're not happy with the service for any reason, we'll refund your money within 7 days of purchase.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I choose which brawlers to boost?</div>
+                    <div class="faq-answer">
+                        <p>Absolutely! You can specify exactly which brawlers you want us to focus on, or let our boosters choose the most efficient ones for your trophy goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>support@rjastore.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Gaming St, Virtual City</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>RJA Store</h3>
+                    <p>Premium Brawl Stars boosting services since 2018. Fast, reliable, and secure.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Trophy Boosting</a></li>
+                        <li><a href="#">Star Power Unlock</a></li>
+                        <li><a href="#">Account Leveling</a></li>
+                        <li><a href="#">Rank Pushing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 RJA Store. All rights reserved. Not affiliated with Supercell.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-btn" id="chatbotBtn">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>RJA Store Assistant</h3>
+                <button class="close-chatbot" id="closeChatbot">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hello! I'm your RJA Store assistant. How can I help you today?
+                </div>
+                <div class="message bot-message">
+                    Here are some quick questions you might have:
+                </div>
+            </div>
+            <div class="quick-questions" id="quickQuestions">
+                <button class="quick-question">How long does boosting take?</button>
+                <button class="quick-question">Is account sharing safe?</button>
+                <button class="quick-question">What payment methods do you accept?</button>
+                <button class="quick-question">Can I get a refund?</button>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Type your question...">
+                <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+
+        // Chatbot Toggle
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const closeChatbot = document.getElementById('closeChatbot');
+        
+        chatbotBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        // Chatbot Functionality
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const quickQuestions = document.querySelectorAll('.quick-question');
+        
+        const botResponses = {
+            "how long does boosting take": "Delivery times vary based on the service. Trophy boosts typically take 1-3 days, while account maxing may take 2-5 days depending on the current progress.",
+            "is account sharing safe": "Yes, we use VPNs from your region and take all necessary precautions to ensure your account's safety. We've completed thousands of boosts without any issues.",
+            "what payment methods do you accept": "We accept PayPal, credit/debit cards, and various cryptocurrencies. All payments are secure and processed through trusted payment gateways.",
+            "can i get a refund": "Yes, we offer a 100% satisfaction guarantee. If you're not happy with the service for any reason, we'll refund your money within 7 days of purchase.",
+            "default": "I'm sorry, I didn't understand that. Could you please rephrase your question or choose one of the quick questions above?"
+        };
+        
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        function handleUserInput() {
+            const question = userInput.value.toLowerCase();
+            userInput.value = '';
+            
+            if (question.trim() === '') return;
+            
+            addMessage(question, true);
+            
+            setTimeout(() => {
+                let response = botResponses['default'];
+                
+                for (const key in botResponses) {
+                    if (question.includes(key)) {
+                        response = botResponses[key];
+                        break;
+                    }
+                }
+                
+                addMessage(response);
+            }, 500);
+        }
+        
+        sendBtn.addEventListener('click', handleUserInput);
+        
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+        
+        quickQuestions.forEach(button => {
+            button.addEventListener('click', () => {
+                const question = button.textContent;
+                addMessage(question, true);
+                
+                setTimeout(() => {
+                    const responseKey = question.toLowerCase().replace('?', '');
+                    const response = botResponses[responseKey] || botResponses['default'];
+                    addMessage(response);
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
