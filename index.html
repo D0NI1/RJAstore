@@ -464,7 +464,7 @@
             font-weight: 500;
         }
 
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 0.8rem 1rem;
             border-radius: 8px;
@@ -594,6 +594,168 @@
         .payment-success p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
+        }
+
+        /* Payment Proof Section */
+        .payment-proof-section {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .proof-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .proof-preview {
+            display: none;
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .upload-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            background: var(--glass-bg);
+            color: var(--text-white);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .upload-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .confirm-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            background: var(--neon-pink);
+            color: var(--text-white);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--neon-pink);
+        }
+
+        .confirm-btn:disabled {
+            background: #666;
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Account Market Slideshow */
+        .account-slideshow {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .account-slide {
+            display: none;
+            background: var(--glass-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .account-slide.active {
+            display: block;
+        }
+
+        .account-slide h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--neon-pink);
+        }
+
+        .account-slide .account-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .account-slide .account-details p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .account-slide .account-details strong {
+            color: var(--text-white);
+        }
+
+        .account-slide .account-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .account-slide .select-account {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--neon-pink);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .account-slide .select-account:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .account-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .account-nav-btn {
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .account-nav-btn:hover {
+            background: var(--neon-pink);
+            border-color: var(--neon-pink);
+        }
+
+        .account-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--glass-bg);
+            border-color: var(--glass-border);
         }
 
         /* About Section */
@@ -1047,7 +1209,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#why-choose">Why Us</a></li>
             <li><a href="#testimonials">Reviews</a></li>
-           <li><a href="https://discord.gg/4c8avPm2" class="btn-neon" target="_blank">Discord</a></li>
+           <li><a href="https://discord.gg/therealrja" class="btn-neon" target="_blank">Discord</a></li>
         </ul>
     </nav>
     
@@ -1058,7 +1220,7 @@
             <p>Premium account services from trusted professionals. Get the edge you need to dominate the battlefield with our fast and reliable services.</p>
             <div class="cta-buttons">
                <a href="#services" class="btn-primary">Browse Services</a>
-                <a href="https://discord.gg/4c8avPm2" class="btn-secondary" target="_blank" style="text-decoration: none;">Join Server</a>
+                <a href="https://discord.gg/therealrja" class="btn-secondary" target="_blank" style="text-decoration: none;">Join Server</a>
             </div>
         </div>
         <div class="hero-image">
@@ -1112,8 +1274,8 @@
                 <h3>Account Market</h3>
                 <p>Buy or sell your desired accounts.</p>
                 <div class="price">
-                    $15 - $600
-                    <span class="original-price">$25 - $700</span>
+                    $15 - $5000
+                    <span class="original-price">$25 - $6000</span>
                 </div>
                 <ul class="features">
                     <li><i class="fas fa-check"></i> Security audit</li>
@@ -1299,11 +1461,17 @@
                     Hello! I'm RJA Store's AI assistant. How can I help you today?
                 </div>
                 <div class="message bot-message">
-                    You can ask me about our services, pricing, or order status. Or click one of the quick questions below!
+                    You can ask me about our services, pricing, order status, or account details. Here are some quick options:
+                </div>
+                <div class="message bot-message">
+                    • Account verification process<br>
+                    • Current promotions<br>
+                    • Order tracking<br>
+                    • Payment methods<br>
+                    • Service guarantees
                 </div>
             </div>
-            
-            <div class="quick-questions">
+             <div class="quick-questions">
                 <div class="quick-question" data-question="What services do you offer?">Services Offered</div>
                 <div class="quick-question" data-question="How long does boosting take?">Boosting Time</div>
                 <div class="quick-question" data-question="Is account boosting safe?">Safety</div>
@@ -1331,13 +1499,131 @@
                 <p id="modalServiceDesc">Service description will appear here</p>
             </div>
             
+            <!-- Account Market Slideshow -->
+            <div class="account-slideshow" id="accountSlideshow">
+                <div class="account-slide active" data-price="15">
+                    <h4>Tier 3 Account - $15</h4>
+                    <img src="https://media.discordapp.net/attachments/1368666737712693388/1405980357249077308/image0.jpg?ex=68a0ccbf&is=689f7b3f&hm=68b3efc16baa3251acfb619796f896dad470e971c1193716f5d4d726a14be47a&=&format=webp" class="account-image" alt="Account 1">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 4530</p>
+                        <p><strong>Brawlers:</strong> 37</p>
+                        <p><strong>Skins:</strong> 1 legendary</p>
+                        <p><strong>Rank:</strong> Gold I</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+                
+                <div class="account-slide" data-price="17">
+                    <h4>Tier 3 Account - $17</h4>
+                    <img src="https://media.discordapp.net/attachments/1394356472376332419/1395429551479324863/IMG_1498.png?ex=68a1f78a&is=68a0a60a&hm=95ade0907a648a6f1d98a0fa64634ea62125862221ea03a2d5b67d58622a34e3&=&format=webp" class="account-image" alt="Account 2">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 17,000+</p>
+                        <p><strong>Brawlers:</strong> 50+</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Bronze III</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+                
+                <div class="account-slide" data-price="25">
+                    <h4>Tier 3 Account - $25</h4>
+                    <img src="https://media.discordapp.net/attachments/1394356472376332419/1396827534997323787/IMG_1537.png?ex=68a1c784&is=68a07604&hm=311fbc9dfefbaf8d90f8f71b1d839aac6c0e5f4d2e29a88a773a2b3dd69a0cda&=&format=webp" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 65,000+</p>
+                        <p><strong>Brawlers:</strong> All brawlers</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Mythic III</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+                   <div class="account-slide" data-price="135">
+                    <h4>Tier 2 Account - $135</h4>
+                    <img src="https://media.discordapp.net/attachments/1368666737712693388/1405980357249077308/image0.jpg?ex=68a0ccbf&is=689f7b3f&hm=68b3efc16baa3251acfb619796f896dad470e971c1193716f5d4d726a14be47a&=&format=webp" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 60,000+</p>
+                        <p><strong>Brawlers:</strong>2k Bea</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Diamond II</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+
+                   <div class="account-slide" data-price="425">
+                    <h4>Tier 2 Account - $425</h4>
+                    <img src="https://media.discordapp.net/attachments/1394356441724227634/1395509374918721598/C95F3F4D-A17C-454D-8C42-CB65CE16CF43.png?ex=68a19922&is=68a047a2&hm=2c02884f6765d45122723db67f5661235b677ac2bd77f31890b173e2de32dd05&=&format=webp" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 47,000+</p>
+                        <p><strong>Brawlers:</strong>All</p>
+                        <p><strong>Skins:</strong> Insane Skins</p>
+                        <p><strong>Rank:</strong> Diamond II</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+         
+           <div class="account-slide" data-price="100">
+                    <h4>Tier 2 Account - $100</h4>
+                    <img src="https://media.discordapp.net/attachments/1394356441724227634/1402282643932057671/image0.jpg?ex=68a1d97b&is=68a087fb&hm=5cc93ed2e3a7d5b4ba0f6e5c2351a7288328d3268bf362eeaf4142b35dc2830e&=&format=webp" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 28,000+</p>
+                        <p><strong>Brawlers:</strong>Almost All</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Masters II</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+                   <div class="account-slide" data-price="325">
+                    <h4>Tier 1 Account - $325</h4>
+                    <img src="https://media.discordapp.net/attachments/1394356410107826236/1395458656417480735/IMG_5815.png?ex=68a212a6&is=68a0c126&hm=c65e7ab5fe87ff60d848f5551cfb67e9899a66a80d0c3db3e9e072fa4b43245e&=&format=webp" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 65,000+</p>
+                        <p><strong>Brawlers:</strong>All</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Masters II</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+                
+                   <div class="account-slide" data-price="475">
+                    <h4>Tier  Account - $475</h4>
+                    <img src="" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 60,000+</p>
+                        <p><strong>Brawlers:</strong>All</p>
+                        <p><strong>Skins:</strong> Many Exclusive</p>
+                        <p><strong>Rank:</strong> Masters III</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+                
+                   <div class="account-slide" data-price="550">
+                    <h4>Tier 1 Account - $550</h4>
+                    <img src="" class="account-image" alt="Account 3">
+                    <div class="account-details">
+                        <p><strong>Trophies:</strong> 82,000+</p>
+                        <p><strong>Brawlers:</strong>All-93 maxed</p>
+                        <p><strong>Skins:</strong> 20+ Exclusive</p>
+                        <p><strong>Rank:</strong> Masters I</p>
+                    </div>
+                    <button class="select-account">Select This Account</button>
+                </div>
+
+                <div class="account-navigation">
+                    <button class="account-nav-btn" id="prevAccount">Previous</button>
+                    <button class="account-nav-btn" id="nextAccount">Next</button>
+                </div>
+            </div>
+            
             <!-- Rank Selection (for Ranked Boosting) -->
             <div class="form-group" id="rankSelectionGroup" style="display: none;">
                 <label>Select Ranks</label>
                 <div class="rank-selection">
                     <select id="fromRank">
                         <option value="">From Rank</option>
-                        
                         <option value="masters3">Masters III</option>
                         <option value="masters2">Masters II</option>
                         <option value="masters1">Masters I</option>
@@ -1385,10 +1671,27 @@
             </div>
             
             <div id="paymentForm">
-                <button class="pay-btn" id="payNowBtn">
-                    <i class="fas fa-lock"></i>
-                    Pay Now
-                </button>
+                <a href="https://www.paypal.me/RonaldChag" target="_blank" class="pay-btn" id="payNowBtn">
+                    <i class="fab fa-paypal"></i>
+                    Pay with PayPal
+                </a>
+            </div>
+            
+            <!-- Payment Proof Section -->
+            <div class="payment-proof-section" id="paymentProofSection">
+                <h4>Payment Proof</h4>
+                <p>Please upload a screenshot of your PayPal payment confirmation</p>
+                
+                <div class="proof-upload">
+                    <input type="file" id="proofUpload" accept="image/*" style="display: none;">
+                    <label for="proofUpload" class="upload-btn">
+                        <i class="fas fa-upload"></i> Choose Screenshot
+                    </label>
+                    <img id="proofPreview" class="proof-preview" src="#" alt="Payment Proof Preview">
+                    <button class="confirm-btn" id="confirmPaymentBtn" disabled>
+                        <i class="fas fa-check"></i> Confirm Payment
+                    </button>
+                </div>
             </div>
             
             <div class="payment-processing" id="paymentProcessing">
@@ -1405,9 +1708,6 @@
         </div>
     </div>
     
-    <!-- PayPal SDK (for real payments) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
-    
     <script>
         // Chatbot functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1419,7 +1719,7 @@
             const chatbotSend = document.getElementById('chatbotSend');
             const quickQuestions = document.querySelectorAll('.quick-question');
             
-            // Toggle chatbot window
+        // Toggle chatbot window
             chatbotToggle.addEventListener('click', function() {
                 chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
             });
@@ -1508,7 +1808,7 @@
                     });
                 });
             });
-            
+
             // Order Modal Functionality
             const orderModal = document.getElementById('orderModal');
             const closeModal = document.getElementById('closeModal');
@@ -1518,6 +1818,7 @@
             const modalServiceDesc = document.getElementById('modalServiceDesc');
             const payNowBtn = document.getElementById('payNowBtn');
             const paymentForm = document.getElementById('paymentForm');
+            const paymentProofSection = document.getElementById('paymentProofSection');
             const paymentProcessing = document.getElementById('paymentProcessing');
             const paymentSuccess = document.getElementById('paymentSuccess');
             const closeSuccessBtn = document.getElementById('closeSuccessBtn');
@@ -1526,43 +1827,84 @@
             const fromRank = document.getElementById('fromRank');
             const toRank = document.getElementById('toRank');
             const trophyCount = document.getElementById('trophyCount');
+            const proofUpload = document.getElementById('proofUpload');
+            const proofPreview = document.getElementById('proofPreview');
+            const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
+            const accountSlideshow = document.getElementById('accountSlideshow');
+            const accountSlides = document.querySelectorAll('.account-slide');
+            const prevAccountBtn = document.getElementById('prevAccount');
+            const nextAccountBtn = document.getElementById('nextAccount');
+            const selectAccountBtns = document.querySelectorAll('.select-account');
+            
+            let currentSlide = 0;
+            
+            // Account slideshow navigation
+            function showSlide(index) {
+                accountSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+                
+                // Update navigation buttons
+                prevAccountBtn.disabled = index === 0;
+                nextAccountBtn.disabled = index === accountSlides.length - 1;
+            }
+            
+            prevAccountBtn.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+            
+            nextAccountBtn.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+            
+            // Select account button
+            selectAccountBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const slide = this.closest('.account-slide');
+                    const price = slide.getAttribute('data-price');
+                    
+                    modalServicePrice.textContent = `$${price}`;
+                    paymentForm.style.display = 'block';
+                });
+            });
             
             // Rank pricing
             const rankPrices = {
-    "legendary1": { 
-        "legendary2": 50, 
-        "legendary3": 50, 
-        "masters1": 50, 
-        "masters2": 100, 
-        "masters3": 170, 
-        "pro": 600 
-    },
-    "legendary2": { 
-        "legendary3": 50, 
-        "masters1": 50, 
-        "masters2": 90, 
-        "masters3": 160, 
-        "pro": 580 
-    },
-    "legendary3": { 
-        "masters1": 50, 
-        "masters2": 85, 
-        "masters3": 155, 
-        "pro": 560 
-    },
-    "masters1": { 
-        "masters2": 90, 
-        "masters3": 150, 
-        "pro": 540 
-    },
-    "masters2": { 
-        "masters3": 130, 
-        "pro": 400 
-    },
-    "masters3": { 
-        "pro": 330 
-    }
-};
+                "legendary1": { 
+                    "legendary2": 50, 
+                    "legendary3": 50, 
+                    "masters1": 50, 
+                    "masters2": 100, 
+                    "masters3": 170, 
+                    "pro": 600 
+                },
+                "legendary2": { 
+                    "legendary3": 50, 
+                    "masters1": 50, 
+                    "masters2": 90, 
+                    "masters3": 160, 
+                    "pro": 580 
+                },
+                "legendary3": { 
+                    "masters1": 50, 
+                    "masters2": 85, 
+                    "masters3": 155, 
+                    "pro": 560 
+                },
+                "masters1": { 
+                    "masters2": 90, 
+                    "masters3": 150, 
+                    "pro": 540 
+                },
+                "masters2": { 
+                    "masters3": 130, 
+                    "pro": 400 
+                },
+                "masters3": { 
+                    "pro": 330 
+                }
+            };
             
             // Service descriptions
             const serviceDescriptions = {
@@ -1586,18 +1928,26 @@
                     if (service === "Ranked Boosting") {
                         rankSelectionGroup.style.display = 'block';
                         trophyInputGroup.style.display = 'none';
+                        accountSlideshow.style.display = 'none';
                         // Reset rank selections
                         fromRank.value = '';
                         toRank.value = '';
+                    } else if (service === "Account Market") {
+                        rankSelectionGroup.style.display = 'none';
+                        trophyInputGroup.style.display = 'none';
+                        accountSlideshow.style.display = 'flex';
+                        showSlide(0);
                     } else {
                         rankSelectionGroup.style.display = 'none';
                         trophyInputGroup.style.display = 'none';
+                        accountSlideshow.style.display = 'none';
                         // Reset trophy count
                         trophyCount.value = '';
                     }
                     
                     // Reset modal state
                     paymentForm.style.display = 'block';
+                    paymentProofSection.style.display = 'none';
                     paymentProcessing.style.display = 'none';
                     paymentSuccess.style.display = 'none';
                     
@@ -1628,14 +1978,15 @@
                 }
             }
             
-            // Process payment
-            payNowBtn.addEventListener('click', function() {
+            // Handle PayPal payment button click
+            payNowBtn.addEventListener('click', function(e) {
                 const discordUsername = document.getElementById('discordUsername').value;
                 const paypalEmail = document.getElementById('paypalEmail').value;
                 const service = modalServiceName.textContent;
                 
                 // Validate inputs
                 if (!discordUsername || !paypalEmail) {
+                    e.preventDefault();
                     alert('Please fill in all required fields');
                     return;
                 }
@@ -1643,42 +1994,77 @@
                 // Additional validation based on service
                 if (service === "Ranked Boosting") {
                     if (!fromRank.value || !toRank.value) {
+                        e.preventDefault();
                         alert('Please select both from and to ranks');
                         return;
                     }
-                } else {
-                    if (!trophyCount.value) {
-                        alert('Please enter the trophy count/amount');
-                        return;
-                    }
+                } else if (service === "Account Market" && !modalServicePrice.textContent.includes('$')) {
+                    e.preventDefault();
+                    alert('Please select an account first');
+                    return;
+                } 
+                
+                
+                // Show payment proof section after PayPal payment
+                setTimeout(() => {
+                    paymentForm.style.display = 'none';
+                    paymentProofSection.style.display = 'flex';
+                }, 1000);
+            });
+            
+            // Handle proof image upload
+            proofUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        proofPreview.src = event.target.result;
+                        proofPreview.style.display = 'block';
+                        confirmPaymentBtn.disabled = false;
+                    };
+                    reader.readAsDataURL(file);
                 }
+            });
+            
+            // Handle payment confirmation
+            confirmPaymentBtn.addEventListener('click', function() {
+                const discordUsername = document.getElementById('discordUsername').value;
+                const paypalEmail = document.getElementById('paypalEmail').value;
+                const service = modalServiceName.textContent;
+                const price = modalServicePrice.textContent;
                 
                 // Show processing
-                paymentForm.style.display = 'none';
+                paymentProofSection.style.display = 'none';
                 paymentProcessing.style.display = 'flex';
                 
-                // In a real implementation, you would integrate with PayPal here
-                // This is just a simulation
+                // Prepare order details
+                let orderDetails = {
+                    service: service,
+                    discord: discordUsername,
+                    paypal: paypalEmail,
+                    price: price,
+                    date: new Date().toLocaleString()
+                };
+                
+                if (service === "Ranked Boosting") {
+                    orderDetails.fromRank = fromRank.options[fromRank.selectedIndex].text;
+                    orderDetails.toRank = toRank.options[toRank.selectedIndex].text;
+                } else if (service === "Account Market") {
+                    const currentAccount = accountSlides[currentSlide];
+                    orderDetails.accountType = currentAccount.querySelector('h4').textContent;
+                    orderDetails.accountDetails = {
+                        price: currentAccount.getAttribute('data-price'),
+                        image: currentAccount.querySelector('img').src
+                    };
+                } else {
+                    orderDetails.amount = trophyCount.value;
+                }
+                
+                // In a real implementation, you would send the proof image to your server
+                // For now, we'll just simulate the process
                 setTimeout(() => {
                     paymentProcessing.style.display = 'none';
                     paymentSuccess.style.display = 'flex';
-                    
-                    // Prepare order details
-                    let orderDetails = {
-                        service: service,
-                        discord: discordUsername,
-                        paypal: paypalEmail,
-                        date: new Date().toLocaleString()
-                    };
-                    
-                    if (service === "Ranked Boosting") {
-                        orderDetails.fromRank = fromRank.options[fromRank.selectedIndex].text;
-                        orderDetails.toRank = toRank.options[toRank.selectedIndex].text;
-                        orderDetails.price = modalServicePrice.textContent;
-                    } else {
-                        orderDetails.amount = trophyCount.value;
-                        orderDetails.price = modalServicePrice.textContent;
-                    }
                     
                     // Send order to Discord
                     sendOrderToDiscord(orderDetails);
@@ -1691,66 +2077,96 @@
             });
             
             // Function to send order to Discord
-            function sendOrderToDiscord(orderDetails) {
-                // In a real implementation, you would use a webhook here
-                console.log('Order details:', orderDetails);
-                
-               
-                const webhookURL = 'https://discord.com/api/webhooks/1406002700486967497/PdwQdhW8ifmAgNj1uDJkHDoVCdlErNkV2CZ2SvfyJaEZnDGv5wI5_S2mFWdiGoN1rscu';
-                
-                let description = `**Service:** ${orderDetails.service}\n`;
-                description += `**Discord:** ${orderDetails.discord}\n`;
-                description += `**PayPal:** ${orderDetails.paypal}\n`;
-                description += `**Price:** ${orderDetails.price}\n`;
-                
-                if (orderDetails.service === "Ranked Boosting") {
-                    description += `**From:** ${orderDetails.fromRank}\n`;
-                    description += `**To:** ${orderDetails.toRank}\n`;
-                } else {
-                    description += `**Amount:** ${orderDetails.amount}\n`;
-                }
-                
-                description += `**Date:** ${orderDetails.date}`;
-                
-                const embed = {
-                    title: 'New Order Received',
-                    color: 0xFF10F0,
-                    description: description,
-                    timestamp: new Date().toISOString()
-                };
-                
-                fetch(webhookURL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ embeds: [embed] })
-                });
-            
+function sendOrderToDiscord(orderDetails) {
+    // In a real implementation, you would use a webhook here
+    console.log('Order details:', orderDetails);
+    
+    const webhookURL = 'https://discord.com/api/webhooks/1406353886117363862/1lZ57GdlKqdLqr9rMisNHS76QeyBuDWc5kRUQ-CXkIACqu9IQd1SgAaE46ElclQL_iYC';
+    
+    let description = `**Service:** ${orderDetails.service}\n`;
+    description += `**Discord:** ${orderDetails.discord}\n`;
+    description += `**PayPal:** ${orderDetails.paypal}\n`;
+    description += `**Price:** ${orderDetails.price}\n`;
+    
+    if (orderDetails.service === "Ranked Boosting") {
+        description += `**From:** ${orderDetails.fromRank}\n`;
+        description += `**To:** ${orderDetails.toRank}\n`;
+    } else if (orderDetails.service === "Account Market") {
+        description += `**Account Type:** ${orderDetails.accountType}\n`;
+        description += `**Account Price:** $${orderDetails.accountDetails.price}\n`;
+    } else {
+        description += `**Amount:** ${orderDetails.amount}\n`;
+    }
+    
+    description += `**Date:** ${orderDetails.date}`;
+    
+    // Create the main embed
+    const embed = {
+        title: 'New Order Received',
+        color: 0xFF10F0,
+        description: description,
+        timestamp: new Date().toISOString(),
+        fields: [
+            {
+                name: 'Service Details',
+                value: orderDetails.service,
+                inline: true
+            },
+            {
+                name: 'Customer',
+                value: orderDetails.discord,
+                inline: true
+            },
+            {
+                name: 'Payment',
+                value: orderDetails.price,
+                inline: true
             }
-            
-           
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: calculatePrice() // You would implement this function
-                            }
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        // Show success message
-                        paymentForm.style.display = 'none';
-                        paymentProcessing.style.display = 'none';
-                        paymentSuccess.style.display = 'flex';
-                        
-                        // Send order to Discord
-                        sendOrderToDiscord();
-                    });
-                }
-            }).render('#payNowBtn');
-            
+        ],
+        footer: {
+            text: 'RJA Store Order System'
+        }
+    };
+    
+    // Add account image if it's an account purchase
+    if (orderDetails.service === "Account Market") {
+        embed.image = {
+            url: orderDetails.accountDetails.image
+        };
+    }
+    
+    // Prepare the payload
+    const payload = {
+        embeds: [embed],
+        content: `New order received for ${orderDetails.service}!`
+    };
+    
+    // If there's a payment proof image, add it to the payload
+    const proofFile = document.getElementById('proofUpload').files[0];
+    if (proofFile) {
+        // Create a FormData object to send both the JSON and the image
+        const formData = new FormData();
+        formData.append('payload_json', JSON.stringify(payload));
+        
+        // Create a new file name with timestamp to avoid duplicates
+        const timestamp = new Date().getTime();
+        const fileName = `payment_proof_${timestamp}_${proofFile.name}`;
+        formData.append('file', proofFile, fileName);
+        
+        // Send with FormData header (browser will set Content-Type automatically with boundary)
+        fetch(webhookURL, {
+            method: 'POST',
+            body: formData
+        });
+    } else {
+        // Send without image if no proof was uploaded
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+    }
+}
         });
     </script>
 </body>
